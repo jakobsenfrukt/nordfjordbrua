@@ -1,0 +1,4 @@
+.DS_Store
+/node_modules
+/sanity/dist
+/sanity/node_modules
