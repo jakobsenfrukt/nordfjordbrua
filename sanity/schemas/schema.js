@@ -10,9 +10,10 @@ import frontpage from './documents/frontpage'
 import post from './documents/post'
 
 import body from './objects/body'
+import simpleBody from './objects/simpleBody'
 import figure from './objects/figure'
-import lead from './objects/lead'
-import social from './objects/social'
+import figureCaptioned from './objects/figureCaptioned'
+import contact from './objects/contact'
 
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -30,8 +31,9 @@ export default createSchema({
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     body,
+    simpleBody,
     figure,
-    lead,
-    social
+    figureCaptioned,
+    contact
   ]),
 })

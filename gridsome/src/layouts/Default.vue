@@ -32,11 +32,11 @@ export default {
 
 <style lang="scss" scoped>
 .layout {
-  padding: var(--spacing-m);
+  padding: 0;
 }
 
 .fade-enter-active {
-  transition: opacity 0.8s;
+  transition: opacity 2s;
 }
 
 .fade-enter {

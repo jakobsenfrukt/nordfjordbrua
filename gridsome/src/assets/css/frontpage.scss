@@ -1,0 +1,10 @@
+.section {
+  min-height: 80vh;
+  padding: var(--spacing-sitepadding);
+  &:nth-of-type(even) {
+    background: #ccc;
+  }
+  &-headline {
+    text-align: center;
+  }
+}

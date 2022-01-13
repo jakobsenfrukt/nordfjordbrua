@@ -1,10 +1,24 @@
 <template>
   <header class="site-header">
     <Logo />
-    <!--<nav class="site-nav">
-      <g-link class="nav-link" to="/">Hjem</g-link>
-      <g-link class="nav-link" to="/info/">Info</g-link>
-    </nav>-->
+    <nav class="site-nav">
+      <ul>
+        <li><a @click="toAnchor('#formal')">Formål</a></li>
+        <li><a @click="toAnchor('#bakgrunn')">Bakgrunn</a></li>
+        <li><a @click="toAnchor('#loysing')">Løysing</a></li>
+        <li><a @click="toAnchor('#nyheter')">Nyheter</a></li>
+        <li><a @click="toAnchor('#kontakt')">Kontakt</a></li>
+      </ul>
+    </nav>
+    <nav class="site-nav site-nav--mobile">
+      <ul>
+        <li><a @click="toAnchor('#formal')">Formål</a></li>
+        <li><a @click="toAnchor('#bakgrunn')">Bakgrunn</a></li>
+        <li><a @click="toAnchor('#loysing')">Løysing</a></li>
+        <li><a @click="toAnchor('#nyheter')">Nyheter</a></li>
+        <li><a @click="toAnchor('#kontakt')">Kontakt</a></li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -15,6 +29,23 @@ export default {
   components: {
     Logo,
   },
+  data() {
+    return {
+      menuOpen: false,
+    };
+  },
+  methods: {
+    toAnchor(anchor) {
+      document.querySelector(anchor).scrollIntoView({
+        behavior: "smooth",
+      });
+      // close menu if on mobile
+      this.menuOpen = false;
+    },
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
+  },
 };
 </script>
 
@@ -23,11 +54,32 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: var(--spacing-sitepadding);
+  position: absolute;
+  z-index: 100;
+  width: 100%;
 }
 .site-nav {
-  width: 50%;
-}
-.nav-link {
-  margin-right: 1rem;
+  width: 70%;
+  text-align: right;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin-right: 1rem;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+  a {
+    cursor: pointer;
+  }
+
+  &--mobile {
+    display: none;
+  }
 }
 </style>

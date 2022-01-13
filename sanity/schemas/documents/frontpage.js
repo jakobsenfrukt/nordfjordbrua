@@ -1,12 +1,28 @@
 export default {
   name: 'frontpage',
   type: 'document',
-  title: 'Front page',
+  title: 'Forside',
+  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'], 
   fields: [
     {
+      name: 'headline',
+      type: 'string',
+      title: 'Hovedoverskrift'
+    },
+    {
+      name: 'mainImage',
+      type: 'figure',
+      title: 'Hovedbilde'
+    },
+    {
+      name: 'intro',
+      type: 'text',
+      title: 'Intro'
+    },
+    /*{
       name: 'posts',
       type: 'array',
-      title: 'Posts',
+      title: 'Artikler',
       of: [{
         type: 'reference',
         to: [
@@ -14,6 +30,6 @@ export default {
         ]
       }],
       validation: Rule => Rule.unique()
-    }
+    }*/
   ]
 }

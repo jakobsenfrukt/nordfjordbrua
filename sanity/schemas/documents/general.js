@@ -7,18 +7,18 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Tittel'
     },
     {
       name: 'description',
       type: 'text',
-      title: 'Description',
-      description: 'Describe your site for search engines and social media.'
+      title: 'Beskrivelse',
+      description: 'Beskriv nettsiden for søkemotorer og sosiale medier.'
     },
     {
-      name: 'social',
-      type: 'social',
-      title: 'Social'
+      name: 'contact',
+      type: 'contact',
+      title: 'Kontakt'
     }
   ]
 }

@@ -1,13 +1,30 @@
 <template>
   <Layout>
-    <h1>Under arbeid!</h1>
+    <Hero />
+    <Bakgrunn />
+    <Loysing />
+    <Kontakt />
+    <Nyheter />
   </Layout>
 </template>
 
 <script>
+import Hero from "~/components/frontpage/Hero";
+import Bakgrunn from "~/components/frontpage/Bakgrunn";
+import Loysing from "~/components/frontpage/Loysing";
+import Nyheter from "~/components/frontpage/Nyheter";
+import Kontakt from "~/components/frontpage/Kontakt";
+
 export default {
+  components: {
+    Hero,
+    Bakgrunn,
+    Loysing,
+    Nyheter,
+    Kontakt,
+  },
   metaInfo: {
-    title: "Home",
+    title: "Forside",
     meta: [
       {
         name: "og:image",

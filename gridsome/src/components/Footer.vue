@@ -1,6 +1,7 @@
 <template>
   <footer class="site-footer">
-    <!--<Totop />-->
+    Kontakt, lenker, etc
+    <Totop />
   </footer>
 </template>
 
@@ -13,8 +14,7 @@ query {
     }
   }
   general: sanityGeneral(id: "general") {
-    social {
-      instagram
+    contact {
       facebook
     }
   }
@@ -33,6 +33,10 @@ export default {
 
 <style lang="scss" scoped>
 .site-footer {
-  background: #eee;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sitepadding);
 }
 </style>

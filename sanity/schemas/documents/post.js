@@ -1,11 +1,12 @@
 export default {
   name: 'post',
-  title: 'Post',
+  title: 'Artikkel',
   type: 'document',
+  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'], 
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Tittel',
       type: 'string',
     },
     {
@@ -19,17 +20,17 @@ export default {
     },
     {
       name: 'publishedAt',
-      title: 'Published at',
+      title: 'Publiseringsdato',
       type: 'datetime',
     },
     {
       name: 'mainImage',
-      title: 'Main image',
+      title: 'Hovedbilde',
       type: 'figure'
     },
     {
       name: 'body',
-      title: 'Body',
+      title: 'Brødtekst',
       type: 'body',
     },
   ],
