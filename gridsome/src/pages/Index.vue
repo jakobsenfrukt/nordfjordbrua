@@ -3,8 +3,8 @@
     <Hero />
     <Bakgrunn />
     <Loysing />
-    <Kontakt />
     <Nyheter />
+    <Kontakt />
   </Layout>
 </template>
 
