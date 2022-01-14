@@ -15,7 +15,7 @@ body {
   background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-sans);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.1;
   position: relative;
 }
@@ -32,9 +32,16 @@ a {
 }
 
 p {
-  font-size: var(--font-s);
-  line-height: 1.2;
+  font-family: var(--font-body);
+  font-size: var(--font-size-s);
+  line-height: 1.5;
   margin-top: 0;
+  max-width: 30em;
+
+  &.lead {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-m);
+  }
 
   a {
     text-decoration: underline;
@@ -58,4 +65,8 @@ h6 {
     font-size: var(--font-l);
     margin-bottom: 1rem;
   }
+}
+
+img {
+  max-width: 100%;
 }

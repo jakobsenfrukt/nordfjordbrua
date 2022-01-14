@@ -1,8 +1,9 @@
 <template>
-  <section id="bakgrunn" class="section bakgrunn">
-    <h1 class="section-headline">Bakgrunn</h1>
+  <section id="formal" class="section formal">
+    <h1 class="section-headline">Formål</h1>
+    <p class="lead">{{ $static.frontpage.formal.intro }}</p>
     <div
-      v-for="(row, index) in $static.frontpage.bakgrunn.rows"
+      v-for="(row, index) in $static.frontpage.formal.rows"
       :key="`bakgrunn-${index}`"
     >
       <div v-if="row.type === imageAndText">
@@ -31,7 +32,8 @@ query {
     }
   }
   frontpage: sanityFrontpage (id: "frontpage") {
-    bakgrunn {
+    formal {
+      intro
       rows {
         ... on SanityImageAndText {
           _type

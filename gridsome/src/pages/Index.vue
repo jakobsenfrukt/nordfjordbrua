@@ -2,6 +2,7 @@
   <Layout>
     <Hero />
     <Bakgrunn />
+    <Formal />
     <Loysing />
     <Nyheter />
     <Kontakt />
@@ -11,6 +12,7 @@
 <script>
 import Hero from "~/components/frontpage/Hero";
 import Bakgrunn from "~/components/frontpage/Bakgrunn";
+import Formal from "~/components/frontpage/Formal";
 import Loysing from "~/components/frontpage/Loysing";
 import Nyheter from "~/components/frontpage/Nyheter";
 import Kontakt from "~/components/frontpage/Kontakt";
@@ -19,6 +21,7 @@ export default {
   components: {
     Hero,
     Bakgrunn,
+    Formal,
     Loysing,
     Nyheter,
     Kontakt,

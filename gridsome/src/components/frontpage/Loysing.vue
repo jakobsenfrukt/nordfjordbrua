@@ -1,6 +1,17 @@
 <template>
   <section id="loysing" class="section loysing">
     <h1 class="section-headline">Løysing</h1>
+    <div
+      v-for="(row, index) in $static.frontpage.loysing.rows"
+      :key="`bakgrunn-${index}`"
+    >
+      <div v-if="row.type === textBlock">
+        <BlockContent :blocks="row._rawBody" v-if="row._rawBody" />
+      </div>
+      <div v-else-if="row.type === video">
+        (Video kommer her)
+      </div>
+    </div>
   </section>
 </template>
 
@@ -13,29 +24,31 @@ query {
     }
   }
   frontpage: sanityFrontpage (id: "frontpage") {
-    headline
-    mainImage {
-      asset {
-        _id
-        url
-      }
-      alt
-      hotspot {
-        x
-        y
-        height
-        width
-      }
-      crop {
-        top
-        bottom
-        left
-        right
+    loysing {
+      intro
+      rows {
+        ... on SanityTextBlock {
+          _type
+          _rawBody
+        }
+        ... on SanityVideo {
+          _type
+        }
       }
     }
   }
 }
 </static-query>
+
+<script>
+import BlockContent from "~/components/BlockContent";
+
+export default {
+  components: {
+    BlockContent,
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .hero {

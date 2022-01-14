@@ -3,8 +3,8 @@
     <Logo />
     <nav class="site-nav">
       <ul>
-        <li><a @click="toAnchor('#formal')">Formål</a></li>
         <li><a @click="toAnchor('#bakgrunn')">Bakgrunn</a></li>
+        <li><a @click="toAnchor('#formal')">Formål</a></li>
         <li><a @click="toAnchor('#loysing')">Løysing</a></li>
         <li><a @click="toAnchor('#nyheter')">Nyheter</a></li>
         <li><a @click="toAnchor('#kontakt')">Kontakt</a></li>
@@ -12,8 +12,8 @@
     </nav>
     <nav class="site-nav site-nav--mobile">
       <ul>
-        <li><a @click="toAnchor('#formal')">Formål</a></li>
         <li><a @click="toAnchor('#bakgrunn')">Bakgrunn</a></li>
+        <li><a @click="toAnchor('#formal')">Formål</a></li>
         <li><a @click="toAnchor('#loysing')">Løysing</a></li>
         <li><a @click="toAnchor('#nyheter')">Nyheter</a></li>
         <li><a @click="toAnchor('#kontakt')">Kontakt</a></li>
@@ -58,10 +58,12 @@ export default {
   position: absolute;
   z-index: 100;
   width: 100%;
+  font-size: var(--font-size-s);
 }
 .site-nav {
-  width: 70%;
+  width: 90%;
   text-align: right;
+  color: var(--color-darkblue);
   ul {
     list-style: none;
     margin: 0;
@@ -69,13 +71,34 @@ export default {
   }
   li {
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
     &:last-of-type {
       margin-right: 0;
     }
   }
   a {
+    display: block;
+    position: relative;
     cursor: pointer;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -0.5em;
+      width: 100%;
+      height: 0.3em;
+      background: var(--color-orange);
+      transform: translateY(100%);
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+    &:hover {
+      text-decoration: none;
+      &:after {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
   }
 
   &--mobile {

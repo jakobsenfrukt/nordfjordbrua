@@ -1,6 +1,6 @@
 <template>
   <section class="hero">
-    <img
+    <!--<img
       :alt="$static.frontpage.mainImage.alt"
       :src="
         $urlForImage(
@@ -12,8 +12,12 @@
           .url()
       "
       class="hero-image"
-    />
-    <h1 class="hero-headline">{{ $static.frontpage.headline }}</h1>
+    />-->
+    <div class="hero-text">
+      <h1>{{ $static.frontpage.headline }}</h1>
+      <p class="lead">{{ $static.frontpage.intro }}</p>
+      <Button text="Kontakt oss" anchor="#kontakt" />
+    </div>
   </section>
 </template>
 
@@ -46,9 +50,20 @@ query {
         right
       }
     }
+    intro
   }
 }
 </static-query>
+
+<script>
+import Button from "~/components/Button";
+
+export default {
+  components: {
+    Button,
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .hero {
@@ -56,7 +71,9 @@ query {
   height: 90vh;
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  color: var(--color-darkblue);
+  background: var(--color-lightblue);
   &-image {
     position: absolute;
     top: 0;
@@ -65,12 +82,23 @@ query {
     height: 100%;
     object-fit: cover;
   }
-  &-headline {
+  &-text {
     position: relative;
     z-index: 2;
-    width: 100%;
-    text-align: center;
-    animation: fadeUp 1.5s ease-out;
+    width: 70%;
+    //animation: fadeUp 1.5s ease-out;
+    padding: var(--spacing-sectionpadding);
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: var(--font-size-xl);
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: var(--font-size-m);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
   }
 }
 @keyframes fadeUp {

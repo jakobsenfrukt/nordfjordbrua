@@ -1,10 +1,9 @@
 .section {
   min-height: 80vh;
-  padding: var(--spacing-sitepadding);
-  &:nth-of-type(even) {
-    background: #ccc;
-  }
+  padding: var(--spacing-sectionpadding);
   &-headline {
-    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    font-weight: 400;
   }
 }
