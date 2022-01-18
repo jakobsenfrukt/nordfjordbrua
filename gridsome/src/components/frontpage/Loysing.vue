@@ -16,6 +16,32 @@
       <div v-else-if="row._type === 'video'" class="video-wrapper">
         <Video :vimeo="row.vimeo" />
       </div>
+      <div v-else-if="row._type === 'doubleImage'" class="row-images">
+        <div class="image1">
+          <img
+            v-if="row.image1"
+            :src="
+              $urlForImage(row.image1, $static.metadata.sanityOptions)
+                .width(1200)
+                .auto('format')
+                .url()
+            "
+            :alt="row.image1.alt"
+          />
+        </div>
+        <div class="image2">
+          <img
+            v-if="row.image2"
+            :src="
+              $urlForImage(row.image2, $static.metadata.sanityOptions)
+                .width(1200)
+                .auto('format')
+                .url()
+            "
+            :alt="row.image2.alt"
+          />
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -39,6 +65,23 @@ query {
         ... on SanityVideo {
           _type
           vimeo
+        }
+        ... on SanityDoubleImage {
+          _type
+          image1 {
+            asset {
+              _id
+              url
+            }
+            alt
+          }
+          image2 {
+            asset {
+              _id
+              url
+            }
+            alt
+          }
         }
       }
     }
@@ -69,6 +112,14 @@ export default {
   .row {
     &-video {
       grid-column: 1 / -1;
+    }
+    &-images {
+      .image1 {
+        margin-right: calc(var(--spacing-sitepadding) * -2);
+      }
+      .image2 {
+        margin: -2rem 0 0 var(--spacing-sitepadding);
+      }
     }
   }
 }

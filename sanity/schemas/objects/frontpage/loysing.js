@@ -17,6 +17,8 @@ export default {
       },
       {
         type: 'video'
+      },{
+        type: 'doubleImage'
       },],
       validation: Rule => Rule.unique()
     }

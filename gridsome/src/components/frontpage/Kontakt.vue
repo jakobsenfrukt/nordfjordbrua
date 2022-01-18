@@ -13,9 +13,7 @@
           <a :href="`mailto:${row.email}`" target="_blank" class="email">{{
             row.email
           }}</a>
-          <a :href="`tel:${row.phone}`" target="_blank" class="phone">{{
-            row.phone
-          }}</a>
+          <a :href="`tel:${row.phone}`" class="phone">{{ row.phone }}</a>
         </div>
       </li>
     </ul>
