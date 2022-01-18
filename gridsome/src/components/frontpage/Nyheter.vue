@@ -1,6 +1,12 @@
 <template>
   <section id="nyheter" class="section nyheter">
     <h1 class="section-headline">Nyheter</h1>
+    <p class="lead">{{ $static.frontpage.nyheter.intro }}</p>
+    <Button
+      secondary
+      text="Gå til Facebook"
+      :link="$static.general.contact.facebook"
+    />
   </section>
 </template>
 
@@ -13,29 +19,27 @@ query {
     }
   }
   frontpage: sanityFrontpage (id: "frontpage") {
-    headline
-    mainImage {
-      asset {
-        _id
-        url
-      }
-      alt
-      hotspot {
-        x
-        y
-        height
-        width
-      }
-      crop {
-        top
-        bottom
-        left
-        right
-      }
+    nyheter {
+      intro
+    }
+  }
+  general: sanityGeneral(id: "general") {
+    contact {
+      facebook
     }
   }
 }
 </static-query>
+
+<script>
+import Button from "~/components/Button";
+
+export default {
+  components: {
+    Button,
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .hero {

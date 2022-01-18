@@ -34,6 +34,16 @@ export default {
       type: 'loysing',
       title: 'Løysing'
     },
+    {
+      name: 'nyheter',
+      type: 'nyheter',
+      title: 'Nyheter'
+    },
+    {
+      name: 'kontakt',
+      type: 'kontakt',
+      title: 'Kontakt'
+    },
     /*{
       name: 'posts',
       type: 'array',

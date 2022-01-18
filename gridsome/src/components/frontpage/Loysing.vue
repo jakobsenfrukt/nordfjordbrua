@@ -1,16 +1,20 @@
 <template>
   <section id="loysing" class="section loysing">
-    <h1 class="section-headline">Løysing</h1>
-    <p class="lead">{{ $static.frontpage.loysing.intro }}</p>
+    <div class="row">
+      <h1 class="section-headline">Løysing</h1>
+      <p class="lead">{{ $static.frontpage.loysing.intro }}</p>
+    </div>
     <div
       v-for="(row, index) in $static.frontpage.loysing.rows"
       :key="`bakgrunn-${index}`"
+      class="row"
+      :class="row._type === 'video' ? 'row-video' : ''"
     >
-      <div v-if="row.type === textBlock">
+      <div v-if="row._type === 'textBlock'">
         <BlockContent :blocks="row._rawBody" v-if="row._rawBody" />
       </div>
-      <div v-else-if="row.type === video">
-        (Video kommer her)
+      <div v-else-if="row._type === 'video'">
+        <Video :vimeo="row.vimeo" />
       </div>
     </div>
   </section>
@@ -34,6 +38,7 @@ query {
         }
         ... on SanityVideo {
           _type
+          vimeo
         }
       }
     }
@@ -43,20 +48,28 @@ query {
 
 <script>
 import BlockContent from "~/components/BlockContent";
+import Video from "~/components/Video";
 
 export default {
   components: {
     BlockContent,
+    Video,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.hero {
-  width: 100%;
-  height: 80vh;
-  position: relative;
-  display: flex;
-  align-items: center;
+.loysing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sitepadding);
+  p.lead {
+    max-width: 20em;
+  }
+  .row {
+    &-video {
+      grid-column: 1 / -1;
+    }
+  }
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <section id="kontakt" class="section kontakt">
     <h1 class="section-headline">Kontakt</h1>
+    <p class="lead">{{ $static.frontpage.kontakt.intro }}</p>
   </section>
 </template>
 
@@ -13,25 +14,8 @@ query {
     }
   }
   frontpage: sanityFrontpage (id: "frontpage") {
-    headline
-    mainImage {
-      asset {
-        _id
-        url
-      }
-      alt
-      hotspot {
-        x
-        y
-        height
-        width
-      }
-      crop {
-        top
-        bottom
-        left
-        right
-      }
+    kontakt {
+      intro
     }
   }
 }

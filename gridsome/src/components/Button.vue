@@ -1,11 +1,23 @@
 <template>
-  <button
-    @click="toAnchor(anchor)"
-    class="button"
-    :class="{ secondary: secondary }"
-  >
-    {{ text }}
-  </button>
+  <div>
+    <button
+      @click="toAnchor(anchor)"
+      class="button"
+      :class="{ secondary: secondary }"
+      v-if="anchor"
+    >
+      {{ text }}
+    </button>
+    <a
+      class="button"
+      :class="{ secondary: secondary }"
+      :href="link"
+      v-else-if="link"
+      target="_blank"
+    >
+      {{ text }}
+    </a>
+  </div>
 </template>
 
 <script>
@@ -13,6 +25,7 @@ export default {
   props: {
     text: String,
     anchor: String,
+    link: String,
     secondary: Boolean,
   },
   methods: {
@@ -46,11 +59,16 @@ export default {
 
   &:hover {
     background: var(--color-darkblue);
+    text-decoration: none;
   }
 
   &.secondary {
     background: var(--color-lightorange);
     color: var(--color-darkblue);
+    &:hover {
+      background: var(--color-yellow);
+      text-decoration: none;
+    }
   }
 }
 </style>

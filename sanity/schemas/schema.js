@@ -22,6 +22,8 @@ import textBlock from './objects/textBlock'
 import bakgrunn from './objects/frontpage/bakgrunn'
 import formal from './objects/frontpage/formal'
 import loysing from './objects/frontpage/loysing'
+import nyheter from './objects/frontpage/nyheter'
+import kontakt from './objects/frontpage/kontakt'
 
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -50,6 +52,8 @@ export default createSchema({
     // front page sections
     bakgrunn,
     formal,
-    loysing
+    loysing,
+    nyheter,
+    kontakt
   ]),
 })
