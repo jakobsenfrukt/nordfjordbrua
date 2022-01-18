@@ -98,6 +98,7 @@ export default {
       font-size: var(--font-size-m);
       font-weight: 500;
       margin-bottom: 1rem;
+      max-width: 24em;
     }
   }
 }

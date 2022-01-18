@@ -9,7 +9,7 @@
  *  }
  */
 export default {
-  title: 'Body',
+  title: 'Tekst',
   name: 'body',
   type: 'array',
   of: [

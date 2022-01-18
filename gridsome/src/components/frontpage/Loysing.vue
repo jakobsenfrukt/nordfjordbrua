@@ -1,6 +1,7 @@
 <template>
   <section id="loysing" class="section loysing">
     <h1 class="section-headline">Løysing</h1>
+    <p class="lead">{{ $static.frontpage.loysing.intro }}</p>
     <div
       v-for="(row, index) in $static.frontpage.loysing.rows"
       :key="`bakgrunn-${index}`"

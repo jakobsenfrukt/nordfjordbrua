@@ -14,6 +14,14 @@ import simpleBody from './objects/simpleBody'
 import figure from './objects/figure'
 import figureCaptioned from './objects/figureCaptioned'
 import contact from './objects/contact'
+import imageAndText from './objects/imageAndText'
+import quote from './objects/quote'
+import video from './objects/video'
+import textBlock from './objects/textBlock'
+
+import bakgrunn from './objects/frontpage/bakgrunn'
+import formal from './objects/frontpage/formal'
+import loysing from './objects/frontpage/loysing'
 
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -34,6 +42,14 @@ export default createSchema({
     simpleBody,
     figure,
     figureCaptioned,
-    contact
+    contact,
+    imageAndText,
+    quote,
+    video,
+    textBlock,
+    // front page sections
+    bakgrunn,
+    formal,
+    loysing
   ]),
 })

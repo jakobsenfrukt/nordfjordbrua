@@ -19,6 +19,21 @@ export default {
       type: 'text',
       title: 'Intro'
     },
+    {
+      name: 'bakgrunn',
+      type: 'bakgrunn',
+      title: 'Bakgrunn'
+    },
+    {
+      name: 'formal',
+      type: 'formal',
+      title: 'Formål'
+    },
+    {
+      name: 'loysing',
+      type: 'loysing',
+      title: 'Løysing'
+    },
     /*{
       name: 'posts',
       type: 'array',
