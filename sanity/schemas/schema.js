@@ -18,6 +18,7 @@ import imageAndText from './objects/imageAndText'
 import quote from './objects/quote'
 import video from './objects/video'
 import textBlock from './objects/textBlock'
+import contactPerson from './objects/contactPerson'
 
 import bakgrunn from './objects/frontpage/bakgrunn'
 import formal from './objects/frontpage/formal'
@@ -49,6 +50,7 @@ export default createSchema({
     quote,
     video,
     textBlock,
+    contactPerson,
     // front page sections
     bakgrunn,
     formal,

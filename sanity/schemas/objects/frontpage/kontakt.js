@@ -13,11 +13,8 @@ export default {
       type: 'array',
       title: 'Kontaktpersoner',
       of: [{
-        type: 'textBlock'
-      },
-      {
-        type: 'video'
-      },],
+        type: 'contactPerson'
+      }],
       validation: Rule => Rule.unique()
     }
   ]

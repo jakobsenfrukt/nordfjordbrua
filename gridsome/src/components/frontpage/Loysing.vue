@@ -13,7 +13,7 @@
       <div v-if="row._type === 'textBlock'">
         <BlockContent :blocks="row._rawBody" v-if="row._rawBody" />
       </div>
-      <div v-else-if="row._type === 'video'">
+      <div v-else-if="row._type === 'video'" class="video-wrapper">
         <Video :vimeo="row.vimeo" />
       </div>
     </div>
@@ -71,5 +71,10 @@ export default {
       grid-column: 1 / -1;
     }
   }
+}
+.video-wrapper {
+  width: calc(100% + (var(--spacing-sitepadding) * 4.2));
+  margin: 0 calc(var(--spacing-sitepadding) * -2) 0
+    calc(var(--spacing-sitepadding) * -2);
 }
 </style>
