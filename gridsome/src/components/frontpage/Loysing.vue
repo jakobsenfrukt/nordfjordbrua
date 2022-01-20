@@ -6,7 +6,7 @@
     </div>
     <div
       v-for="(row, index) in $static.frontpage.loysing.rows"
-      :key="`bakgrunn-${index}`"
+      :key="`loysing-${index}`"
       class="row"
       :class="row._type === 'video' ? 'row-video' : ''"
     >

@@ -4,7 +4,7 @@
     <p class="lead">{{ $static.frontpage.formal.intro }}</p>
     <div
       v-for="(row, index) in $static.frontpage.formal.rows"
-      :key="`bakgrunn-${index}`"
+      :key="`formal-${index}`"
       class="row"
     >
       <template v-if="row._type === 'imageAndText'">
