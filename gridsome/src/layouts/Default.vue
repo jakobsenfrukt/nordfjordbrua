@@ -33,6 +33,8 @@ export default {
 <style lang="scss" scoped>
 .layout {
   padding: 0;
+  background: url("/assets/graphics/bg-wave.svg");
+  background-size: 100% auto;
 }
 
 .fade-enter-active {

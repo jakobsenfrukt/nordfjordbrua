@@ -10,7 +10,10 @@
         <li><a @click="toAnchor('#kontakt')">Kontakt</a></li>
       </ul>
     </nav>
-    <nav class="site-nav site-nav--mobile">
+    <nav class="site-nav site-nav--mobile" :class="{ open: menuOpen }">
+      <div role="button" @click="toggleMenu" class="menu-toggle">
+        Meny <MenuIcon class="menu-toggle-icon" :open="menuOpen" />
+      </div>
       <ul>
         <li><a @click="toAnchor('#bakgrunn')">Bakgrunn</a></li>
         <li><a @click="toAnchor('#formal')">Formål</a></li>
@@ -24,10 +27,12 @@
 
 <script>
 import Logo from "~/components/Logo.vue";
+import MenuIcon from "~/components/graphics/icons/MenuIcon.vue";
 
 export default {
   components: {
     Logo,
+    MenuIcon,
   },
   data() {
     return {
@@ -103,6 +108,58 @@ export default {
 
   &--mobile {
     display: none;
+  }
+}
+@media (max-width: 900px) {
+  .site-nav {
+    display: none;
+    &--mobile {
+      display: block;
+      text-align: left;
+
+      ul {
+        background: var(--color-lightorange);
+        color: var(--color-darkblue);
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        padding: calc(var(--spacing-sitepadding) * 2)
+          calc(var(--spacing-sitepadding) * 2)
+          calc(var(--spacing-sitepadding) * 3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+      }
+      li {
+        font-size: 2rem;
+        display: block;
+        padding: 1rem 0;
+      }
+      &.open {
+        ul {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1000;
+    cursor: pointer;
+    &-icon {
+      display: inline-block;
+      width: 2rem;
+      margin-left: 1rem;
+    }
   }
 }
 </style>

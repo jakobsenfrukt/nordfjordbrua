@@ -11,7 +11,6 @@
           fill-rule="evenodd"
           clip-rule="evenodd"
           d="M482.441 232.441L434.065 280.817L284.207 130.961L284.207 500L215.793 500L215.793 130.959L65.9348 280.817L17.5587 232.441L201.624 48.3765L201.624 48.376L250 -0.000101713L482.441 232.441Z"
-          fill="black"
         />
       </svg>
     </button>
@@ -84,6 +83,7 @@ export default {
     width: 1rem;
     height: 1rem;
     vertical-align: middle;
+    fill: var(--color-orange);
   }
 }
 .observer {
