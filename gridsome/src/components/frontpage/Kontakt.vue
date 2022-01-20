@@ -73,6 +73,9 @@ query {
 @media (max-width: 900px) {
   .kontakt {
     text-align: left;
+    .lead {
+      margin: 0.5rem 0;
+    }
     ul {
       display: block;
       li {
