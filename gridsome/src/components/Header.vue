@@ -89,9 +89,9 @@ export default {
       content: "";
       display: block;
       position: absolute;
-      bottom: -0.5em;
+      bottom: -0.7em;
       width: 100%;
-      height: 0.3em;
+      height: var(--border-width);
       background: var(--color-orange);
       transform: translateY(100%);
       opacity: 0;
@@ -138,6 +138,12 @@ export default {
         font-size: 2rem;
         display: block;
         padding: 1rem 0;
+      }
+      a {
+        display: inline-block;
+        &:after {
+          bottom: -0.3em;
+        }
       }
       &.open {
         ul {

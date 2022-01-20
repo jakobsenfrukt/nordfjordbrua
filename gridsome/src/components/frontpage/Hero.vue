@@ -112,4 +112,12 @@ export default {
     transform: translateY(0);
   }
 }
+@media (max-width: 900px) {
+  .hero {
+    min-height: 100vh;
+    &-text {
+      width: 100%;
+    }
+  }
+}
 </style>

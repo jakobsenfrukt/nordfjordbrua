@@ -1,5 +1,5 @@
 <template>
-  <section id="bakgrunn" class="section bakgrunn">
+  <section id="bakgrunn" class="section bakgrunn" :class="{ inview: isInView }">
     <div
       v-for="(row, index) in $static.frontpage.bakgrunn.rows"
       :key="`bakgrunn-${index}`"
@@ -23,6 +23,12 @@
           <BlockContent :blocks="row._rawText" v-if="row._rawText" />
         </div>
       </template>
+
+      <IntersectionObserver
+        id="observer-bakgrunn"
+        class="observer"
+        @on-enter-viewport="onEnterViewport"
+      ></IntersectionObserver>
     </div>
   </section>
 </template>
@@ -57,10 +63,25 @@ query {
 
 <script>
 import BlockContent from "~/components/BlockContent";
+import IntersectionObserver from "~/components/tools/IntersectionObserver";
 
 export default {
   components: {
     BlockContent,
+    IntersectionObserver,
+  },
+  data() {
+    return {
+      isInView: false,
+    };
+  },
+  methods: {
+    onEnterViewport(value) {
+      this.isInView = value;
+      if (value === false) {
+        return;
+      }
+    },
   },
 };
 </script>
@@ -72,7 +93,6 @@ export default {
     display: flex;
     align-items: center;
     &-image {
-      background: blue;
       align-self: stretch;
       width: 55%;
       position: relative;
@@ -106,6 +126,79 @@ export default {
           var(--spacing-sitepadding) var(--spacing-sitepadding) 0;
       }
     }
+  }
+}
+@media (max-width: 900px) {
+  .bakgrunn {
+    .row {
+      flex-wrap: wrap;
+      &-image {
+        width: 100%;
+
+        img {
+          position: relative;
+          top: -1rem;
+          height: calc(100% + 1rem);
+        }
+      }
+      &-text {
+        width: 100%;
+        padding: calc(var(--spacing-sitepadding) * 2) 0
+          calc(var(--spacing-sitepadding) * 3);
+      }
+      &:nth-of-type(even) {
+        .row-image {
+          order: 1;
+        }
+        .row-text {
+          padding: calc(var(--spacing-sitepadding) * 2) 0;
+          order: 2;
+        }
+      }
+    }
+  }
+}
+
+/* scroll animations */
+.bakgrunn {
+  .row-image {
+    img {
+      transform: translateX(-5%);
+      opacity: 0;
+      transition: all 1s linear;
+    }
+  }
+  .row:nth-of-type(even) {
+    .row-image {
+      img {
+        transform: translateX(5%);
+      }
+    }
+  }
+  &.inview {
+    .row-image {
+      img {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    .row:nth-of-type(even) {
+      .row-image {
+        img {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+}
+.observer {
+  position: absolute;
+  top: 30%;
+  height: 100%;
+}
+@media (max-width: 900px) {
+  .observer {
+    top: 0;
   }
 }
 </style>

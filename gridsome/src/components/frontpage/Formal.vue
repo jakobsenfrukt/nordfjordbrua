@@ -1,5 +1,5 @@
 <template>
-  <section id="formal" class="section formal">
+  <section id="formal" class="section formal" :class="{ inview: isInView }">
     <h1 class="section-headline">Formål</h1>
     <p class="lead">{{ $static.frontpage.formal.intro }}</p>
     <div
@@ -26,6 +26,12 @@
       <template v-else-if="row._type === 'quote'">
         <blockquote>{{ row.text }}</blockquote>
       </template>
+
+      <IntersectionObserver
+        id="observer-formal"
+        class="observer"
+        @on-enter-viewport="onEnterViewport"
+      ></IntersectionObserver>
     </div>
   </section>
 </template>
@@ -65,10 +71,25 @@ query {
 
 <script>
 import BlockContent from "~/components/BlockContent";
+import IntersectionObserver from "~/components/tools/IntersectionObserver";
 
 export default {
   components: {
     BlockContent,
+    IntersectionObserver,
+  },
+  data() {
+    return {
+      isInView: false,
+    };
+  },
+  methods: {
+    onEnterViewport(value) {
+      this.isInView = value;
+      if (value === false) {
+        return;
+      }
+    },
   },
 };
 </script>
@@ -77,12 +98,12 @@ export default {
 .formal {
   .lead {
     margin-bottom: calc(var(--spacing-sitepadding) * 4);
+    max-width: 65%;
   }
   .row {
     display: flex;
     align-items: center;
     &-image {
-      background: blue;
       align-self: stretch;
       width: 55%;
       position: relative;
@@ -147,6 +168,81 @@ blockquote {
   }
   &:after {
     content: "»";
+  }
+}
+@media (max-width: 900px) {
+  .formal {
+    .lead {
+      max-width: none;
+      margin-bottom: calc(var(--spacing-sitepadding) * 6);
+    }
+    .row {
+      flex-wrap: wrap;
+      &-image {
+        width: 100%;
+
+        img {
+          position: relative;
+        }
+      }
+      &-text {
+        width: 100%;
+        padding: calc(var(--spacing-sitepadding) * 2) 0
+          calc(var(--spacing-sitepadding) * 4);
+      }
+      &:nth-of-type(even) {
+        .row-image {
+          order: 1;
+        }
+        .row-text {
+          padding: calc(var(--spacing-sitepadding) * 2) 0
+            calc(var(--spacing-sitepadding) * 4);
+          order: 2;
+        }
+      }
+    }
+  }
+}
+/* scroll animations */
+.formal {
+  .row-image {
+    img {
+      transform: translateX(-5%);
+      opacity: 0;
+      transition: all 1s linear;
+    }
+  }
+  .row:nth-of-type(even) {
+    .row-image {
+      img {
+        transform: translateX(5%);
+      }
+    }
+  }
+  &.inview {
+    .row-image {
+      img {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    .row:nth-of-type(even) {
+      .row-image {
+        img {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+}
+.observer {
+  position: absolute;
+  top: 30%;
+  height: 100%;
+}
+@media (max-width: 900px) {
+  .observer {
+    top: 0;
   }
 }
 </style>

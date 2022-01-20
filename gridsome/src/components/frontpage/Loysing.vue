@@ -128,4 +128,9 @@ export default {
   margin: 0 calc(var(--spacing-sitepadding) * -2) 0
     calc(var(--spacing-sitepadding) * -2);
 }
+@media (max-width: 900px) {
+  .loysing {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

@@ -28,7 +28,8 @@ a {
     text-decoration: underline;
     text-underline-position: below;
     text-underline-offset: 0.04em;
-    text-decoration-thickness: var(--border-width);
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--color-orange);
   }
 }
 
@@ -47,8 +48,9 @@ p {
   a {
     text-decoration: underline;
     text-underline-position: below;
-    text-underline-offset: 0.04em;
-    text-decoration-thickness: var(--border-width);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--color-orange);
   }
 }
 

@@ -50,6 +50,7 @@ query {
   text-align: center;
   .lead {
     margin: 0.5rem auto;
+    max-width: 20em;
   }
   ul {
     list-style: none;
@@ -66,6 +67,17 @@ query {
     span,
     a {
       display: block;
+    }
+  }
+}
+@media (max-width: 900px) {
+  .kontakt {
+    text-align: left;
+    ul {
+      display: block;
+      li {
+        margin-bottom: 2rem;
+      }
     }
   }
 }

@@ -83,7 +83,7 @@ export default {
 .site-footer {
   padding: var(--spacing-sitepadding);
   margin: var(--spacing-sitepadding) var(--spacing-sitepadding) 0;
-  border-top: 0.3rem solid var(--color-orange);
+  border-top: var(--border-width) solid var(--color-orange);
   font-family: var(--font-body);
   font-size: var(--font-size-s);
   color: var(--color-darkblue);

@@ -6,12 +6,12 @@
 
   --font-size-s: 0.8rem;
   --font-size-m: 1rem;
-  --font-size-l: 1.4rem;
+  --font-size-l: 1.65rem;
   --font-size-xl: 2.4rem;
 
   --spacing-sitepadding: 2rem;
   --spacing-sectionpadding: 4rem;
-  --border-width: 0.12em;
+  --border-width: 6px;
 
   // colors
   --color-orange: #e94a16;
@@ -30,10 +30,15 @@ body {
   --color-highlight: var(--color-orange);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   :root {
-    --font-l: 1.2rem;
-    --font-m: 1rem;
-    --spacing-m: 0.6rem;
+    --font-size-s: 0.9rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.3rem;
+    --font-size-xl: 2rem;
+
+    --spacing-sitepadding: 1rem;
+    --spacing-sectionpadding: 2rem;
+    --border-width: 6px;
   }
 }
