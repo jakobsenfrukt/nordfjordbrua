@@ -7,6 +7,14 @@ export default {
       name: 'intro',
       type: 'text',
       title: 'Intro'
+    },
+    {
+      name: 'rows',
+      type: 'array',
+      title: 'Innhold',
+      of: [{
+        type: 'doubleImage'
+      },]
     }
   ]
 }
