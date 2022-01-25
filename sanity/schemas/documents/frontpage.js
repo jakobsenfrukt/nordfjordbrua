@@ -9,11 +9,11 @@ export default {
       type: 'string',
       title: 'Hovedoverskrift'
     },
-    {
+    /*{
       name: 'mainImage',
       type: 'figure',
       title: 'Hovedbilde'
-    },
+    },*/
     {
       name: 'intro',
       type: 'text',

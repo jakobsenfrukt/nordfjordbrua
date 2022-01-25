@@ -18,6 +18,12 @@
       <p class="lead">{{ $static.frontpage.intro }}</p>
       <Button text="Kontakt oss" anchor="#kontakt" />
     </div>
+    <div class="hero-illustration">
+      <img
+        src="/assets/graphics/index-ill.svg"
+        alt="Stilisert illustrasjon av en person som tråkker over en åpning mellom to øyer"
+      />
+    </div>
   </section>
 </template>
 
@@ -31,25 +37,6 @@ query {
   }
   frontpage: sanityFrontpage (id: "frontpage") {
     headline
-    mainImage {
-      asset {
-        _id
-        url
-      }
-      alt
-      hotspot {
-        x
-        y
-        height
-        width
-      }
-      crop {
-        top
-        bottom
-        left
-        right
-      }
-    }
     intro
   }
 }
@@ -74,14 +61,16 @@ export default {
   align-items: flex-end;
   color: var(--color-darkblue);
   background: var(--color-lightblue);
-  &-image {
+  overflow: hidden;
+  position: relative;
+  /*&-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+  }*/
   &-text {
     position: relative;
     z-index: 2;
@@ -101,6 +90,12 @@ export default {
       max-width: 24em;
     }
   }
+  &-illustration {
+    position: absolute;
+    bottom: -0.5rem;
+    right: 0;
+    width: 60%;
+  }
 }
 @keyframes fadeUp {
   from {
@@ -114,9 +109,17 @@ export default {
 }
 @media (max-width: 900px) {
   .hero {
-    min-height: 100vh;
+    height: auto;
+    flex-wrap: wrap;
+    align-items: flex-start;
     &-text {
       width: 100%;
+      margin-top: 7rem;
+    }
+    &-illustration {
+      width: 100%;
+      position: static;
+      margin-top: -10rem;
     }
   }
 }
