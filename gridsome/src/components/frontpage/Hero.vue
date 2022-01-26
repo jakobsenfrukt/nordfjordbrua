@@ -77,7 +77,7 @@ export default {
     width: 70%;
     //animation: fadeUp 1.5s ease-out;
     padding: var(--spacing-sectionpadding);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 
     h1 {
       font-size: var(--font-size-xl);
@@ -92,7 +92,7 @@ export default {
   }
   &-illustration {
     position: absolute;
-    bottom: -0.5rem;
+    bottom: 0;
     right: 0;
     width: 60%;
   }
@@ -120,6 +120,7 @@ export default {
       width: 100%;
       position: static;
       margin-top: -10rem;
+      margin-bottom: 2rem;
     }
   }
 }
